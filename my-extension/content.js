@@ -23,7 +23,7 @@ function showExplainPopup(selectedText) {
         popup = null;
       });
 
-      popup.querySelector('#selected-text').innerText = escapeHtml(selectedText);
+      popup.querySelector('#selected-text').innerText = selectedText;
 
       fetch('https://insta-explain.vercel.app/explain', {
         method: 'POST',
@@ -42,14 +42,4 @@ function showExplainPopup(selectedText) {
           popup.querySelector('#explanation').innerText = 'Error fetching explanation.';
         });
     });
-}
-
-function escapeHtml(str) {
-  return str.replace(/[&<>'"]/g, tag => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    "'": '&#39;',
-    '"': '&quot;'
-  }[tag]));
 }
