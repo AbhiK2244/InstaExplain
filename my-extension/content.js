@@ -25,7 +25,7 @@ function showExplainPopup(selectedText) {
 
       popup.querySelector('#selected-text').innerText = escapeHtml(selectedText);
 
-      fetch('http://localhost:3000/explain', {
+      fetch('https://insta-explain.vercel.app/explain', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: selectedText })
